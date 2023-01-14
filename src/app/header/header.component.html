@@ -1,0 +1,10 @@
+<div class="header">
+    <h2>MyStore</h2>
+    <!-- routerLink="/ProductList" -->
+    <!-- routerLink="/Cart" -->
+    <a (click)="ChangeProduct()">Product List | </a>
+    <a (click)="ChangeCart()"> Cart</a>
+
+</div>
+<app-product-list *ngIf="productList" [cartList]="cartList"></app-product-list>
+<app-cart *ngIf="cart" [cartList]="cartList" (showHeader)="ChangeProduct()"></app-cart> 

@@ -1,0 +1,25 @@
+<div class="product-container-dev " *ngIf="!Show">
+  <div class="product-index">
+  <div class="product-container" *ngFor="let product of productList" >
+    <img  class="product-image" src="{{product.url}}" alt="Photo of a product" (click)="LoadDeatis(product)">
+    <div >
+      <p>
+        {{ product.name}}
+      </p>
+      <p>
+       ${{product.price}}
+      <select class="select-input form-select" id='select'  [(ngModel)]="product.amount" >
+        <option *ngFor="let item of AmountArr" [ngValue]="item" >
+          {{item }}</option>
+      </select>
+      <br>
+      <input class="btn btn-primary select-input" type="button" value="Add To Cart" (click)="AddToCart(product)" />
+    </div>
+  </div>
+</div>
+</div>
+<app-productdetail *ngIf="Show" [product]="childProduct"  [cartList]="cartList" (showProductList)="showProductList($event)" ></app-productdetail>
+
+
+
+  
